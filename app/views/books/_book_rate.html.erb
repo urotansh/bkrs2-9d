@@ -1,0 +1,15 @@
+<div id='book-rate-<%= book.id %>'></div>
+<script>
+$(document).on('turbolinks:load', function () {
+  $('#book-rate-<%= book.id %>').empty();
+  // scriptファイルをどのidの部分に配置するかを指定
+  let elem<%= book.id %> = document.querySelector('#book-rate-<%= book.id %>');
+  let opt<%= book.id %> = {
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn :  '<%= asset_path('star-on.png') %>',
+    score: <%= book.rate %>,
+    readOnly: true
+  };
+  raty(elem<%= book.id %>,opt<%= book.id %>);
+});
+</script>
