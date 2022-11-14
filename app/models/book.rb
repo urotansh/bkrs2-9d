@@ -14,10 +14,7 @@ class Book < ApplicationRecord
     favorites.exists?(user_id: user.id)
   end
 
-  def self.search_for(keyword, search)
-    
-    #検索カラム
-    column = "title"
+  def self.search_for(keyword, search, column)
     
     # 完全一致検索
     if search == "perfect_match"

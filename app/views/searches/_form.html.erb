@@ -1,10 +1,15 @@
 <% if user_signed_in? %>
   <div class="container">
-  <div class="row justify-content-center my-3">
-    <%= form_with url: searches_path, local: true, method: :get do |f| %>
+  <div class="row justify-content-start my-3">
+    <%= form_with url: searches_path, local: true, method: :get, class: "mr-3" do |f| %>
       <%= f.text_field :keyword %>
       <%= f.select :target, {"User": "User", "Book": "Book"} %>
       <%= f.select :search, {"完全一致": "perfect_match", "前方一致": "forward_match", "後方一致": "backward_match", "部分一致": "partial_match"} %>
+      <%= f.submit '検索' %>
+    <% end %>
+    <%= form_with url: searches_path, local: true, method: :get do |f| %>
+      <%= f.text_field :keyword %>
+      <%= f.hidden_field :tag, :value => "true" %>
       <%= f.submit '検索' %>
     <% end %>
   </div>

@@ -38,10 +38,7 @@ class User < ApplicationRecord
     followers.exists?(id: user.id)
   end
   
-  def self.search_for(keyword, search)
-    
-    #検索カラム
-    column = "name"
+  def self.search_for(keyword, search, column)
     
     # 完全一致検索
     if search == "perfect_match"
