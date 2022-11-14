@@ -53,7 +53,7 @@ before_action :is_matching_login_user, only: [:edit, :update]
   private
 
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :body, :tag)
   end
   
   def book_rate_params
